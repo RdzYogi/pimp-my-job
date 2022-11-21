@@ -4,7 +4,7 @@
 
 <%= user_signed_in? %>
 
-<%= if user_signed_in? %>
+<% if user_signed_in? %>
   <%= current_user.id %>
   <%= current_user.email %>
   <%= current_user.encrypted_password %>

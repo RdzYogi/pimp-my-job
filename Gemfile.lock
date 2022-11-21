@@ -147,17 +147,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-<<<<<<< HEAD
-<<<<<<< HEAD
     nokogiri (1.13.9-x86_64-darwin)
-=======
-    nokogiri (1.13.9-arm64-darwin)
->>>>>>> master
-=======
-    nokogiri (1.13.9-arm64-darwin)
->>>>>>> master
-      racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.5)
@@ -254,16 +244,7 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-<<<<<<< HEAD
-<<<<<<< HEAD
   x86_64-darwin-19
-=======
-  arm64-darwin-21
->>>>>>> master
-=======
-  arm64-darwin-21
->>>>>>> master
-  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
