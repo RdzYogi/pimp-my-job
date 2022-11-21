@@ -110,6 +110,8 @@ GEM
       railties (>= 3.2)
     erubi (1.11.0)
     execjs (2.8.1)
+    faker (3.0.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     font-awesome-sass (6.2.1)
       sassc (~> 2.0)
@@ -146,7 +148,11 @@ GEM
       net-protocol
     nio4r (2.5.8)
 <<<<<<< HEAD
+<<<<<<< HEAD
     nokogiri (1.13.9-x86_64-darwin)
+=======
+    nokogiri (1.13.9-arm64-darwin)
+>>>>>>> master
 =======
     nokogiri (1.13.9-arm64-darwin)
 >>>>>>> master
@@ -249,7 +255,11 @@ GEM
 
 PLATFORMS
 <<<<<<< HEAD
+<<<<<<< HEAD
   x86_64-darwin-19
+=======
+  arm64-darwin-21
+>>>>>>> master
 =======
   arm64-darwin-21
 >>>>>>> master
@@ -262,6 +272,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  faker
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
