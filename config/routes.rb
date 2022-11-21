@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  resources :users do
-    resources :jobs
-  end
-  resources :jobs, only: [] do
+
+  resources :jobs, only: %i[index show new create edit update destroy] do
     resources :offers, only: %i[new create]
   end
+  resources :offers, only: %i[destroy]
 end
