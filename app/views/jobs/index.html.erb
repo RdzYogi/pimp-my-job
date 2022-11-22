@@ -1,19 +1,34 @@
 
 <div class="container mt-3 d-flex justify-content-between">
-  <h2 class="m-3">All jobs</h2>
+  <h2 class="m-3">All (<%= @jobs.count %>) jobs</h2>
   <h2><%= link_to "New job", new_job_path, class: "btn btn-primary text-white rounded-5" %></h2>
 </div>
 <div class="container mt-3 row m-auto">
-  <div class="jobs-container col-4">
+  <div class="jobs-container col-5">
     <% @jobs.each do |e| %>
       <div class="m-3 col-3 job-card" id="">
-        <%= link_to job_path(e), class: "text-decoration-none" do %>
-          <p class=""><%= e.description %></p>
-          <p class="ps-2"><%= link_to "Remove", job_path(e), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none text-danger" %></p>
+        <div class="card-title row">
+          <h5 class="card-job-title col-9"><%= e.name %></h5>
+          <h5 class="card-budget col-3 ps-0"><%= e.price %>€</h5>
+        </div>
+        <div class="card-info row m-0">
+          <div class="card-info-details col-8 p-0">
+            <p class="m-0">Location:<%= e.zone.nil? ? " unspecified": e.zone %></p>
+            <p class="m-0">Deadline: <%= e.deadline.day %>/<%= e.deadline.month %>/<%= e.deadline.year %></p>
+          </div>
+          <div class="d-flex justify-content-center align-items-center col-3"><div class="user-avatar"></div></div>
+        </div>
+        <div class="card-links row">
+          <%= link_to '#', class:"col-8 pe-0" do %>
+            <p class="m-0 ps-2 pe-0">See on map</p>
           <% end %>
+          <%= link_to job_path(e), class: "text-decoration-none btn btn-primary btn-see-job rounded-5 col-3" do %>
+            <p class="m-0 ps-2 pe-2">See job</p>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
-  <div class="map-container col-8 sticky-top">
+  <div class="map-container col-7 sticky-top">
   </div>
 </div>
