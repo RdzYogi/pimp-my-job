@@ -1,0 +1,13 @@
+<h2>Let`s create a new job!</h2>
+<div class="container form-container">
+  <%= simple_form_for(@job) do |f| %>
+    <%= f.input :name, label: "In a few words, what do you need done?" %>
+    <%= f.input :description, label: "What are the details?" %>
+    <%= f.input :address, label: "Where do you need it done?" %>
+    <%= f.input :price, label: "Suggest your budget (€)" %>
+    <%= f.input :deadline, label: "When do you need it done?" %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<%# data turbo %>
