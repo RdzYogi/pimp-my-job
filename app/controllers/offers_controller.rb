@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   def new
+    @job = Job.find(params[:job_id])
     @offer = Offer.new
   end
 
@@ -8,14 +9,15 @@ class OffersController < ApplicationController
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @offer = Offer.new(offer_params)
     @offer.job = @job
     @offer.user = current_user
 
     if @offer.save
-      redirect_to job_path(@offer.job)
+      redirect_to jobs_path(@job)
     else
-      render job_path(@offer.job), status: :unprocessable_entity
+      render "/jobs/#{@job.id}", status: :unprocessable_entity
     end
   end
 
@@ -23,9 +25,9 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
 
     if @offer.update(offer_params)
-      redirect_to job_path(@offer.job)
+      redirect_to jobs_path(@job)
     else
-      render job_path(@offer.job), status: :unprocessable_entity
+      render "/jobs/#{@job.id}", status: :unprocessable_entity
     end
   end
 
@@ -39,6 +41,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:bid, :comment, :status)
+    params.require(:offer).permit(:bid, :comment, :status, :job_id)
   end
 end

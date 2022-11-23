@@ -24,11 +24,21 @@
     </div>
   </div>
   <div class="show-offers-container">
-
-    <% if current_user == job.user %>
-      <%= render 'offers/form-offer' %>
-    <% end %>
-    <% @offers %>
-
+    <%= render 'offers/form-offer' %>
+    <h4>Offers:</h4>
+    <div class="show-offers">
+      <% @job.offers.each do |offer| %>
+        <div class="show-offer">
+          <div class="show-offer-title">
+            <h5><%= offer.user.name %></h5>
+          </div>
+          <div class="show-offer-details">
+            <p><%= offer.comment %></p>
+          </div>
+          <div class="show-offer-price">
+            <p><%= offer.bid %>€</p>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
