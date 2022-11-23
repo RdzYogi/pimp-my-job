@@ -14,7 +14,10 @@
         <div class="card-info row m-0">
           <div class="card-info-details col-8 p-0">
             <p class="m-0">Location:<%= e.address.nil? ? " unspecified": e.address %></p>
-            <p class="m-0">Deadline: <%= e.deadline.day %>/<%= e.deadline.month %>/<%= e.deadline.year %></p>
+            <% if e.deadline.nil? %>
+            <% else %>
+              <p class="m-0">Deadline: <%= e.deadline.day %>/<%= e.deadline.month %>/<%= e.deadline.year %></p>
+            <% end %>
           </div>
           <div class="d-flex justify-content-center align-items-center col-3"><div class="user-avatar"></div></div>
         </div>

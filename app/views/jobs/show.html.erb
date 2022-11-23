@@ -23,7 +23,7 @@
       <p><%= @job.address.nil? ? " unspecified": @job.address %></p>
     </div>
   </div>
-  <div class="show-offers-container">
+  <div class="show-offers-container" overflow-y="scroll">
     <%= render 'offers/form-offer' %>
     <h4>Offers:</h4>
     <div class="show-offers">
