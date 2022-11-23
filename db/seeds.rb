@@ -12,6 +12,7 @@ user = User.first.id
   Job.create!({ description: Faker::Company.bs,
                 name: Faker::Construction.subcontract_category,
                 user_id: user,
+                address: Faker::Address.full_address,
                 deadline: Faker::Date.forward(days: rand(20..200)),
                 price: rand(100...1000).to_i })
 end
