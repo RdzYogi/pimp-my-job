@@ -10,11 +10,17 @@
           <p>Deadline: <%= @job.deadline.day %>/<%= @job.deadline.month %>/<%= @job.deadline.year %></p>
         </div>
       </div>
-      <div class="show-budget col-5"></div>
+      <div class="show-budget col-5">
+        <p>Budget:<%= @job.price %>€</p>
+      </div>
     </div>
     <div class="show-details-container">
+      <h4>Details:</h4>
+      <p><%= @job.description %></p>
     </div>
     <div class="show-location-container">
+      <h4>Location:</h4>
+      <p><%= @job.address.nil? ? " unspecified": @job.address %></p>
     </div>
   </div>
   <div class="show-offers-container"></div>
