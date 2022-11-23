@@ -3,7 +3,7 @@ Job.destroy_all
 User.destroy_all
 
 User.create!({ name: "John", email: "john@gmail.com", password: "123456" })
-User.create!({ name: "Paul", email: "paul@gmail.com", password: "123456" })
+User.create!({ name: "Paul", email: "p@gmail.com", password: "123456" })
 User.create!({ name: "Jim", email: "jim@gmail.com", password: "123456" })
 
 user = User.first.id
