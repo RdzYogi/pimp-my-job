@@ -1,0 +1,48 @@
+.new-navbar-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 72px;
+width: 100%;
+padding: 0;
+background-color: white;
+color: #008FB4;
+text-decoration: none;
+}
+
+.nav-home-button {
+  height: 72px;
+  font-weight: bold;
+}
+.nav-post-button {
+  height: 72px;
+  font-weight:lighter;
+}
+.nav-browse-button {
+  height: 72px;
+  font-weight:lighter;
+}
+.nav-categories-button {
+  height: 72px;
+  font-weight:lighter;
+}
+.nav-dashboard-button {
+  height: 72px;
+  font-weight:lighter;
+}
+.nav-logout-button {
+  height: 72px;
+  font-weight:lighter;
+}
+
+.avatar {
+flex: 0 32px;
+width: 32px;
+height: 32px;
+margin-left: 8px;
+border-radius: 50%;
+}
+.logo {
+ width: 100px;
+ height: 100%;
+  }
