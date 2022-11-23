@@ -1,0 +1,16 @@
+.map-container{
+  height: 80vh;
+  width: 35vw;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: lightcyan;
+  position: sticky;
+  top: 72px;
+  // sticky needs to be adjusted to final navbar size
+}
+#jobs-container{
+  height: fit-content;
+}
+#main-container{
+  height: fit-content;
+}

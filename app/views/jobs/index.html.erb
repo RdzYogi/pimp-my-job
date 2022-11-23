@@ -3,8 +3,8 @@
   <h2 class="m-3">All (<%= @jobs.count %>) jobs</h2>
   <h2><%= link_to "New job", new_job_path, class: "btn btn-primary text-white rounded-5" %></h2>
 </div>
-<div class="container mt-3 row m-auto">
-  <div class="jobs-container col-5">
+<div class="container mt-3 row m-auto" id="main-container">
+  <div class="jobs-container col-6" id="jobs-container">
     <% @jobs.each do |e| %>
       <div class="m-3 col-3 job-card" id="">
         <div class="card-title row">
@@ -29,6 +29,7 @@
       </div>
     <% end %>
   </div>
-  <div class="map-container col-7 sticky-top">
+  <div class="map-container col-5">
+    <p>map placeholder</p>
   </div>
 </div>
