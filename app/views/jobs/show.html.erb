@@ -1,0 +1,21 @@
+<div class="container show-main-controller">
+  <div class="show-details-main-container">
+    <div class="show-title-container row">
+      <div class="show-title col-7">
+        <div class="main title">
+          <h4><%= @job.name %></h4>
+        </div>
+        <div class="main-details">
+          <p>Posted by:  <%= @job.user.name %></p>
+          <p>Deadline: <%= @job.deadline.day %>/<%= @job.deadline.month %>/<%= @job.deadline.year %></p>
+        </div>
+      </div>
+      <div class="show-budget col-5"></div>
+    </div>
+    <div class="show-details-container">
+    </div>
+    <div class="show-location-container">
+    </div>
+  </div>
+  <div class="show-offers-container"></div>
+</div>
