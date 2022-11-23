@@ -25,9 +25,10 @@
   </div>
   <div class="show-offers-container">
 
-     <%# if current_user == job.user %>
-
-    <%= render 'offers/form-offer' %>
+    <% if current_user == job.user %>
+      <%= render 'offers/form-offer' %>
+    <% end %>
+    <% @offers %>
 
   </div>
 </div>
