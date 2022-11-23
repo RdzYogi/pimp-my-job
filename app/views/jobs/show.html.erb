@@ -23,5 +23,11 @@
       <p><%= @job.address.nil? ? " unspecified": @job.address %></p>
     </div>
   </div>
-  <div class="show-offers-container"></div>
+  <div class="show-offers-container">
+
+     <%# if current_user == job.user %>
+
+    <%= render 'offers/form-offer' %>
+
+  </div>
 </div>

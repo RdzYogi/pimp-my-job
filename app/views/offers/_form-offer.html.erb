@@ -1,0 +1,7 @@
+    <div class="container form-container">
+      <%= simple_form_for [@job, @offer ] do |f| %>
+        <%= f.input :comment, label: "Post your offer!" %>
+        <%= f.input :bid, label: "Your Bid (€):" %>
+        <%= f.submit %>
+      <% end %>
+    </div>
