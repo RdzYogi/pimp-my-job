@@ -1,4 +1,5 @@
 require 'faker'
+Offer.destroy_all
 Job.destroy_all
 User.destroy_all
 
@@ -15,4 +16,12 @@ user = User.first.id
                 address: Faker::Address.full_address,
                 deadline: Faker::Date.forward(days: rand(20..200)),
                 price: rand(100...1000).to_i })
+end
+user = User.second.id
+job = Job.first.id
+4.times do
+  Offer.create!({ comment: Faker::Company.bs,
+                  bid: rand(100...1000).to_i,
+                  user_id: user,
+                  job_id: job })
 end
