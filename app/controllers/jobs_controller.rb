@@ -35,6 +35,9 @@ class JobsController < ApplicationController
     redirect_to jobs_path, status: :see_other
   end
 
+  def dashboard
+  end
+
   private
 
   def set_job
