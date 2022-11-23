@@ -15,7 +15,7 @@ class OffersController < ApplicationController
     @offer.user = current_user
 
     if @offer.save
-      redirect_to jobs_path(@job)
+      redirect_to "/jobs/#{@job.id}"
     else
       render "/jobs/#{@job.id}", status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
 
     if @offer.update(offer_params)
-      redirect_to jobs_path(@job)
+      redirect_to "/jobs/#{@job.id}"
     else
       render "/jobs/#{@job.id}", status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offer.destroy
 
-    redirect_to job_path(@offer.job)
+    redirect_to "/jobs/#{@offer.job.id}"
   end
 
   private
