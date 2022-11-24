@@ -23,7 +23,7 @@
             <p class="m-0">Deadline: <%= job.deadline.day %>/<%= job.deadline.month %>/<%= job.deadline.year %></p>
           </div>
           <div class="d-flex justify-content-center align-items-center">
-            <div class="user-avatar"></div>
+            <div class="user-avatar" style="background-image:url('<%= cl_image_path job.user.photo.key %>')"></div>
           </div>
         </div>
         <div class="card-links d-flex justify-content-between" >
