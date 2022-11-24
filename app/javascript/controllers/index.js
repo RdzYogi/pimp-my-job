@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import ChangeLocationController from "./change_location_controller"
-application.register("change-location", ChangeLocationController)
+import HomeController from "./home_controller"
+application.register("home", HomeController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
