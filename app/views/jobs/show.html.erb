@@ -3,11 +3,11 @@
     <div class="show-title-container row">
       <div class="show-title col-7">
         <div class="main title">
-          <h2><%= @job.name %></h2>
+          <h1><%= @job.name %></h1>
         </div>
         <div class="main-details">
-          <p>Posted by:  <%= @job.user.name %></p>
-          <p>Deadline: <%= @job.deadline.day %>/<%= @job.deadline.month %>/<%= @job.deadline.year %></p>
+          <p><span>Posted by: </span><span class="light-blue-font"><%= @job.user.name %></span></p>
+          <p><span>Deadline:</span> <span class="light-blue-font"><%= @job.deadline.day %>/<%= @job.deadline.month %>/<%= @job.deadline.year %></span></p>
         </div>
       </div>
       <div class="col-5" id="budget-btn-container">
@@ -15,23 +15,27 @@
           <h3>Budget:<%= @job.price %>€</h3>
           <h3 style="color: #008FB4"></h3>
         </div>
-        <div class="justify-content-center show-btns-container">
+        <div class="justify-content-center align-items-center show-btns-container">
             <% if @job.user == current_user %>
-            <%= link_to "Edit Job", edit_job_path(@job), class: "btn btn-primary" %>
-            <%= link_to "Delete Job", job_path(@job), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            <%= link_to "Edit Job", edit_job_path(@job), class: "btn btn-edit-job" %>
             <% end %>
         </div>
       </div>
     </div>
     <div class="show-details-container">
       <h4>Details:</h4>
-      <div class="show-details-description rounded light-blue-border">
+      <div class="show-details-description p-2 rounded light-blue-border">
         <p><%= @job.description %></p>
       </div>
     </div>
     <div class="show-location-container">
       <h4>Location:</h4>
-      <p><%= @job.address.nil? ? " unspecified": @job.address %></p>
+      <div id="show-map" style="height: 90%; width: 100%"
+            data-controller="show-map"
+            data-lat="<%= @job.latitude %>"
+            data-lng="<%= @job.longitude %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
   <div class="show-offers-container p-3 rounded" overflow-y="scroll">
@@ -67,7 +71,7 @@
         <% @job.offers.each do |offer| %>
           <div class="show-offer light-blue-border">
             <div class="show-offer-title">
-              <h5><%= offer.user.name %></h5>
+              <h5 ><%= offer.user.name %></h5>
             </div>
             <div class="show-offer-details">
               <p><%= offer.comment %></p>
@@ -76,11 +80,11 @@
               <p><%= offer.bid %>€</p>
             </div>
             <% if @job.user == current_user %>
-              <%= link_to "Accept", offer_path(offer), class: "btn btn-success" %>
+              <%= link_to "Accept", offer_path(offer), class: "btn btn-success rounded" %>
               <% if offer.status == true %>
                 <p><%= "Offer accepted" %></p>
               <% end %>
-              <%= link_to "Deny", offer_path(offer), class: "btn btn-warning" %>
+              <%= link_to "Deny", offer_path(offer), class: "btn btn-warning rounded" %>
             <% end %>
           </div>
         <% end %>

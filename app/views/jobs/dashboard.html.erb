@@ -8,6 +8,7 @@
       <div class="received-offers">Received Offers</div>
     </div>
 
+
 <div class="container d-flex justify-content-between m-auto">
     <div class=" mt-2">
       <% current_user.jobs.each do |job| %>
@@ -20,6 +21,7 @@
       <% end %>
     </div>
 
+
     <div class=" mt-2">
       <% if current_user.offers.empty? %>
         <p><%= "No Offers made" %></p>
@@ -29,6 +31,7 @@
         <% end %>
       <% end %>
     </div>
+
 
     <div class=" mt-2">
       <% my_offers = [] %>
