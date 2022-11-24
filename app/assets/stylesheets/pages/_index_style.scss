@@ -1,5 +1,5 @@
 .map-container{
-  height: 85vh;
+  height: 80vh;
   width: 45%;
   margin: 0 auto;
   margin-top: 10px;
@@ -16,4 +16,14 @@
 #map{
   height: 100%;
   width: 100%;
+}
+
+#search-form{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
