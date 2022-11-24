@@ -6,6 +6,7 @@ User.destroy_all
 User.create!({ name: "John", email: "john@gmail.com", password: "123456" })
 User.create!({ name: "Paul", email: "p@gmail.com", password: "123456" })
 User.create!({ name: "Jim", email: "jim@gmail.com", password: "123456" })
+cities = %i[Paris London Berlin Madrid Barcelona]
 
 user = User.first.id
 
@@ -13,9 +14,10 @@ user = User.first.id
   Job.create!({ description: Faker::Company.bs,
                 name: Faker::Construction.subcontract_category,
                 user_id: user,
-                address: Faker::Address.city,
+                address: cities.sample,
                 deadline: Faker::Date.forward(days: rand(20..200)),
                 price: rand(100...1000).to_i })
+  sleep(1.5)
 end
 user = User.second.id
 job = Job.first.id

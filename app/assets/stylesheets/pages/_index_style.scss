@@ -1,9 +1,8 @@
 .map-container{
-  height: 80vh;
-  width: 35vw;
+  height: 85vh;
+  width: 45%;
   margin: 0 auto;
   margin-top: 10px;
-  background-color: lightcyan;
   position: sticky;
   top: 72px;
   // sticky needs to be adjusted to final navbar size
@@ -13,4 +12,8 @@
 }
 #main-container{
   height: fit-content;
+}
+#map{
+  height: 100%;
+  width: 100%;
 }

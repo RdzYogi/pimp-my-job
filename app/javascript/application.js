@@ -25,14 +25,38 @@ const combinations = [
 ];
 
 let prev = 0;
+if (wrapper != null) {
+  setInterval(() => {
+    const index = uniqueRand(0, combinations.length - 1, prev),
+          combination = combinations[index];
 
-setInterval(() => {
-  const index = uniqueRand(0, combinations.length - 1, prev),
-        combination = combinations[index];
+    wrapper.dataset.configuration = combination.configuration;
+    wrapper.dataset.roundness = combination.roundness;
+    wrapper.dataset.text = index + 1;
 
-  wrapper.dataset.configuration = combination.configuration;
-  wrapper.dataset.roundness = combination.roundness;
-  wrapper.dataset.text = index + 1;
+    prev = index;
+  }, 3000);
 
-  prev = index;
-}, 3000);
+}
+
+const btns = document.querySelectorAll(".location-change")
+const mapC = document.querySelector("#map")
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    console.log(event.currentTarget.dataset.lat)
+    console.log(event.currentTarget.dataset.lng)
+    const lat = event.currentTarget.dataset.lat
+    const lng = event.currentTarget.dataset.lng
+    // mapboxgl.accessToken = this.apiKeyValue
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: "mapbox://styles/mapbox/streets-v10",
+      center: [lng, lat],
+      zoom: 9
+    })
+    new mapboxgl.Marker()
+        .setLngLat([ lng, lat ])
+        .addTo(map)
+  })
+})
