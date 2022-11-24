@@ -21,7 +21,7 @@ user = User.first.id
 end
 user = User.second.id
 job = Job.first.id
-4.times do
+2.times do
   Offer.create!({ comment: Faker::Company.bs,
                   bid: rand(100...1000).to_i,
                   user_id: user,
