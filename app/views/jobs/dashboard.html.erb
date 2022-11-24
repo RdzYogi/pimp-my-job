@@ -2,14 +2,14 @@
   <h1>My Dashboard</h1>
 </div>
 
-    <div class="flex-container2">
-      <div>My Posted Jobs</div>
-      <div>My Offers</div>
-      <div>Received Offers</div>
+    <div class="flex-container1">
+      <div class="posted-jobs">My Posted Jobs</div>
+      <div class="my-offers">My Offers</div>
+      <div class="received-offers">Received Offers</div>
     </div>
 
-<div class="flex-container1">
-    <div>
+<div class="container d-flex justify-content-between m-auto">
+    <div class=" mt-2">
       <% current_user.jobs.each do |job| %>
       <ul class="list-group">
         <li class="list-group-item list-group-secondary-info">
@@ -20,7 +20,7 @@
       <% end %>
     </div>
 
-    <div class="border border-dark">
+    <div class=" mt-2">
       <% if current_user.offers.empty? %>
         <p><%= "No Offers made" %></p>
       <% else %>
@@ -30,7 +30,7 @@
       <% end %>
     </div>
 
-    <div class="border border-danger">
+    <div class=" mt-2">
       <% my_offers = [] %>
         <% current_user.jobs.each do |job| %>
           <% unless job.offers.nil? %>
