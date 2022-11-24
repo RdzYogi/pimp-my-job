@@ -38,6 +38,13 @@ class OffersController < ApplicationController
     redirect_to "/jobs/#{@offer.job.id}"
   end
 
+  def change_status
+    @offer = Offer.find(params[:id])
+    @offer.status = true
+    @offer.save
+    redirect_to "/jobs/#{@offer.job.id}"
+  end
+
   private
 
   def offer_params
