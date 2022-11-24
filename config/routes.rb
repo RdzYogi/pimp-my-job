@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get '/dashboard', to: 'jobs#dashboard'
+
   resources :jobs, only: %i[index show new create edit update destroy] do
     resources :offers, only: %i[new create]
   end
-  resources :offers, only: %i[destroy]
+  resources :offers, only: %i[update destroy]
+
+  get '/offers/:id', to: 'offers#change_status'
 end
