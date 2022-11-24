@@ -8,8 +8,8 @@
       <div>Received Offers</div>
     </div>
 
-<div class="flex-container1">
-    <div>
+<div class="container row m-auto">
+    <div class="d-flex flex-column col-3 m-auto mt-2" id="dash-jobs">
       <% current_user.jobs.each do |job| %>
       <ul class="list-group">
         <li class="list-group-item list-group-secondary-info">
@@ -20,7 +20,7 @@
       <% end %>
     </div>
 
-    <div class="border border-dark">
+    <div class="border border-dark col-3 m-auto mt-2" id="dash-my-offers">
       <% if current_user.offers.empty? %>
         <p><%= "No Offers made" %></p>
       <% else %>
@@ -30,7 +30,7 @@
       <% end %>
     </div>
 
-    <div class="border border-danger">
+    <div class="border border-danger col-3 m-auto mt-2" id="offers">
       <% my_offers = [] %>
         <% current_user.jobs.each do |job| %>
           <% unless job.offers.nil? %>

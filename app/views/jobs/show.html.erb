@@ -31,7 +31,12 @@
     </div>
     <div class="show-location-container">
       <h4>Location:</h4>
-      <p><%= @job.address.nil? ? " unspecified": @job.address %></p>
+      <div id="show-map" style="height: 90%; width: 100%"
+            data-controller="show-map"
+            data-lat="<%= @job.latitude %>"
+            data-lng="<%= @job.longitude %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
   <div class="show-offers-container p-3 rounded" overflow-y="scroll">
