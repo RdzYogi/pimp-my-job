@@ -5,27 +5,27 @@
 </div>
 <div class="container mt-3 row m-auto" id="main-container">
   <div class="jobs-container col-6" id="jobs-container">
-    <% @jobs.each do |e| %>
+    <% @jobs.each do |job| %>
       <div class="m-3 col-3 job-card" id="">
         <div class="card-title row">
-          <h5 class="card-job-title col-9"><%= e.name %></h5>
-          <h5 class="card-budget col-3 ps-0"><%= e.price %>€</h5>
+          <h5 class="card-job-title col-9"><%= job.name %></h5>
+          <h5 class="card-budget col-3 ps-0"><%= job.price %>€</h5>
         </div>
         <div class="card-info row m-0">
           <div class="card-info-details col-8 p-0">
-            <p class="m-0">Location:<%= e.address.nil? ? " unspecified": e.address %></p>
-            <% if e.deadline.nil? %>
-            <% else %>
-              <p class="m-0">Deadline: <%= e.deadline.day %>/<%= e.deadline.month %>/<%= e.deadline.year %></p>
-            <% end %>
+            <p class="m-0">Location:<%= job.address.nil? ? " unspecified": job.address %></p>
+            <p class="m-0">Deadline: <%= job.deadline.day %>/<%= job.deadline.month %>/<%= job.deadline.year %></p>
           </div>
           <div class="d-flex justify-content-center align-items-center col-3"><div class="user-avatar"></div></div>
         </div>
-        <div class="card-links row">
-          <%= link_to '#', class:"col-8 pe-0" do %>
-            <p class="m-0 ps-2 pe-0">See on map</p>
-          <% end %>
-          <%= link_to job_path(e), class: "text-decoration-none btn btn-primary btn-see-job rounded-5 col-3" do %>
+        <div class="card-links row" >
+          <button class="col-8 pe-0 location-change"
+              data-lat = <%= job.latitude %>
+              data-lng = <%= job.longitude %>
+              style="cursor: pointer;">
+            See on map
+          </button>
+          <%= link_to job_path(job), class: "text-decoration-none btn btn-primary btn-see-job rounded-5 col-3" do %>
             <p class="m-0 ps-2 pe-2">See job</p>
           <% end %>
         </div>
@@ -33,6 +33,9 @@
     <% end %>
   </div>
   <div class="map-container col-5">
-    <p>map placeholder</p>
+    <div id="map"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
