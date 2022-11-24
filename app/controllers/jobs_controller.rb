@@ -3,12 +3,22 @@ class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @jobs = Job.all
-    @markers = @jobs.geocoded.map do |job|
-      {
-        lat: job.latitude,
-        lng: job.longitude
-      }
+    if params[:query].present?
+      @jobs = Job.search_by_all(params[:query])
+      @markers = @jobs.geocoded.map do |job|
+        {
+          lat: job.latitude,
+          lng: job.longitude
+        }
+      end
+    else
+      @jobs = Job.all
+      @markers = @jobs.geocoded.map do |job|
+        {
+          lat: job.latitude,
+          lng: job.longitude
+        }
+      end
     end
   end
 

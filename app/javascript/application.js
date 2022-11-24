@@ -25,7 +25,11 @@ const combinations = [
 ];
 
 let prev = 0;
+
 if (wrapper != null) {
+  wrapper.dataset.configuration = combinations[prev].configuration;
+  wrapper.dataset.roundness = combinations[prev].roundness;
+  wrapper.dataset.text = prev + 1;
   setInterval(() => {
     const index = uniqueRand(0, combinations.length - 1, prev),
           combination = combinations[index];
