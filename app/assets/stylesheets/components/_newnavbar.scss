@@ -1,4 +1,4 @@
-.new-navbar-container {
+.new-navbar {
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -6,41 +6,50 @@ height: 72px;
 width: 100%;
 padding: 0;
 background-color: white;
-color: #008FB4;
+border-bottom:  #008FB4 solid 0.5px;
 }
 
 .nav-home-button {
   height: 72px;
 }
-.nav-post-button {
+.nav-post {
   height: 72px;
   font-weight:lighter;
+  font-size: 16px;
+  color: #008FB4;
 }
-.nav-browse-button {
+.nav-browse {
   height: 72px;
   font-weight:lighter;
-}
-.nav-categories-button {
-  height: 72px;
-  font-weight:lighter;
-}
-.nav-dashboard-button {
-  height: 72px;
-  font-weight:lighter;
-}
-.nav-logout-button {
-  height: 72px;
-  font-weight:lighter;
+  font-size: 16px;
+  color: #008FB4;
 }
 
-.avatar {
+.nav-dashboard {
+  height: 72px;
+  font-weight:lighter;
+  font-size: 16px;
+  color: #008FB4;
+}
+.nav-logout {
+  height: 72px;
+  font-weight:lighter;
+  font-size: 16px;
+  color: #008FB4;
+}
+
+.nav-avatar {
 flex: 0 32px;
 width: 32px;
 height: 32px;
 margin-left: 8px;
 border-radius: 50%;
 }
-.logo {
- width: 100px;
- height: 100%;
+
+#logo {
+  background-image: url("https://api.logo.com/api/v2/images?format=webp&logo=logo_1fd30e2b-2c5e-45d8-8af8-bdd1751e17f3&width=2000&height=1500&quality=100&margins=500&fit=contain&u=1669191159");
+  height: 100%;
+  aspect-ratio: 1.5;
+  background-size: cover;
+  padding: 0 16px;
 }
