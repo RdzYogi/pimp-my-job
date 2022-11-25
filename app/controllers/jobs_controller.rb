@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   def index
     if params[:query].present?
-      @jobs = Job.search_by_all(params[:query])
+      @jobs = Job.search_by_all(params[:query]).order(updated_at: :desc)
       @markers = @jobs.geocoded.map do |job|
         {
           lat: job.latitude,
@@ -12,7 +12,7 @@ class JobsController < ApplicationController
         }
       end
     else
-      @jobs = Job.all
+      @jobs = Job.all.order(updated_at: :desc)
       @markers = @jobs.geocoded.map do |job|
         {
           lat: job.latitude,

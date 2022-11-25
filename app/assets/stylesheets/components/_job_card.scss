@@ -43,10 +43,9 @@ $padding-start-end: 35px;
   padding-right: $padding-start-end;
 }
 .btn-see-job{
-  display: flex;
-  align-items: center;
+  background-color: #008FB4;
+  color: #FFFFFF;
   width: fit-content;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
 .btn-change-map{
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);

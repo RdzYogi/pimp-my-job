@@ -6,7 +6,7 @@
     class: "form-control",
     placeholder: "Find a job"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn btn-see-job rounded" %>
 <% end %>
 </div>
 <div class="container mt-3 row m-auto" id="main-container">
@@ -19,6 +19,7 @@
         </div>
         <div class="card-info d-flex justify-content-between m-0">
           <div class="card-info-details p-0">
+            <p class="m-0">Posted by: <%= job.user.name %></p>
             <p class="m-0">Location:<%= job.address.nil? ? " unspecified": job.address %></p>
             <p class="m-0">Deadline: <%= job.deadline.day %>/<%= job.deadline.month %>/<%= job.deadline.year %></p>
           </div>
@@ -27,13 +28,13 @@
           </div>
         </div>
         <div class="card-links d-flex justify-content-between" >
-          <button class="p-0 location-change btn btn-primary btn-change-map rounded-5"
+          <button class="p-0 location-change btn btn-see-job rounded"
               data-lat = <%= job.latitude %>
               data-lng = <%= job.longitude %>
               style="cursor: pointer;">
             <p class="m-0 ps-2 pe-2">See on map</p>
           </button>
-          <%= link_to job_path(job), class: "text-decoration-none btn btn-primary btn-see-job rounded-5 p-0" do %>
+          <%= link_to job_path(job), class: "text-decoration-none btn btn-see-job rounded p-0" do %>
             <p class="m-0 ps-2 pe-2">See job</p>
           <% end %>
         </div>
