@@ -4,14 +4,16 @@
       <div id="logo"></div>
     <% end %>
   </div>
-  <div class="nav-post d-flex align-items-center">
-    <%= link_to "Post a Job", new_job_path, class:"text-decoration-none" %>
-  </div>
-  <div class="nav-browse d-flex align-items-center">
-    <%= link_to "Browse Jobs", jobs_path, class:"text-decoration-none" %>
-  </div>
-  <div class="nav-dashboard d-flex align-items-center">
-    <%= link_to "Dashboard", dashboard_path, class:"text-decoration-none" %>
+  <div class="nav-links">
+    <div class="nav-post d-flex align-items-center">
+      <%= link_to "Post a Job", new_job_path, class:"text-decoration-none" %>
+    </div>
+    <div class="nav-browse d-flex align-items-center">
+      <%= link_to "Browse Jobs", jobs_path, class:"text-decoration-none" %>
+    </div>
+    <div class="nav-dashboard d-flex align-items-center">
+      <%= link_to "Dashboard", dashboard_path, class:"text-decoration-none" %>
+    </div>
   </div>
 
   <% if user_signed_in? %>
