@@ -38,7 +38,7 @@
           </div>
         <% else %>
           <% current_user.offers.each do |offer| %>
-            <div class="card-title d-flex flex-column justify-content-center align-items-center p-0">
+            <div class="card-title list-group-item d-flex flex-column justify-content-center align-items-center">
                   <p class="no-text-present "><%= offer.bid.to_i %> € for: <%= offer.job.name %></p>
                   <%= link_to job_path(offer.job), class: "text-decoration-none btn btn-see-job rounded p-0" do %>
                     <p class="m-0 ps-2 pe-2">See job</p>
