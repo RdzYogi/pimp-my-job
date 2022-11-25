@@ -42,13 +42,15 @@
   overflow-y: auto;
   height: 100%;
 }
+#offers-container-2{
+  overflow-y: auto;
+  height: 100%;
+}
 .show-offer-accepted {
   color: lightgreen;
 }
 .show-offer-denied {
   color: lightcoral;
-}
-.show-offer {
 }
 #offer-title {
   color: #008FB4;
