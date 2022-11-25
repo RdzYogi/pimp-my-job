@@ -1,4 +1,4 @@
-<div class="d-flex mt-3 justify-content-center">
+<div class="d-flex mt-3 mb-3 justify-content-center">
   <h1>My Dashboard</h1>
 </div>
 
@@ -8,46 +8,51 @@
       <div class="received-offers">Received Offers</div>
     </div>
 
-
-<div class="container d-flex justify-content-between m-auto">
-    <div class=" mt-2">
+<div class="container d-flex justify-content-between">
+    <div class="">
       <% current_user.jobs.each do |job| %>
       <ul class="list-group">
-        <li class="list-group-item list-group-secondary-info">
-          <%= job.name %>
-          <%= link_to "Edit job", edit_job_path(job) %>
+        <li class="list-group-item">
+          <p><%= job.name %></p>
+          <p><%= link_to "Edit", edit_job_path(job) %></p>
         </li>
       </ul>
       <% end %>
     </div>
 
-
-    <div class=" mt-2">
-      <% if current_user.offers.empty? %>
-        <p><%= "No Offers made" %></p>
-      <% else %>
-        <% current_user.offers.each do |offer| %>
-          <%= offer.comment %>
+    <div class="">
+      <ul class="list-group">
+        <% if current_user.offers.empty? %>
+          <li class="list-group-item">
+            <p class="card-title"><%= "No offers made" %></p>
+        <% else %>
+          <% current_user.offers.each do |offer| %>
+            <p class="card-title"><%= offer.comment %></p>
+          <% end %>
         <% end %>
-      <% end %>
+          </li>
+      </ul>
     </div>
 
-
-    <div class=" mt-2">
-      <% my_offers = [] %>
-        <% current_user.jobs.each do |job| %>
-          <% unless job.offers.nil? %>
-            <% job.offers.each do |offer| %>
-              <% my_offers << offer %>
+    <div class="">
+      <ul class="list-group">
+        <% my_offers = [] %>
+          <% current_user.jobs.each do |job| %>
+            <% unless job.offers.nil? %>
+              <% job.offers.each do |offer| %>
+                <% my_offers << offer %>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-        <% if my_offers.empty? %>
-          <p><%= "No Offers received" %></p>
-        <% else %>
-          <% my_offers.each do |offer| %>
-            <p><%= offer.comment %></p>
+          <% if my_offers.empty? %>
+            <li class="list-group-item">
+              <p class="card-title"><%= "No offers received" %></p>
+          <% else %>
+            <% my_offers.each do |offer| %>
+              <p class="card-title"><%= offer.comment %></p>
+            <% end %>
           <% end %>
-        <% end %>
+            </li>
+      </ul>
     </div>
 </div>
