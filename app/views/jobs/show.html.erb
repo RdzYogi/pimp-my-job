@@ -78,7 +78,7 @@
                   <p><%= offer.comment %></p>
                 </div>
                 <div class="show-offer-price">
-                  <p><%= offer.bid %>€</p>
+                  <p><%= offer.bid.to_i %> €</p>
                 </div>
                 <% if @job.user == current_user %>
                   <%= link_to "Accept", offer_path(offer), class: "btn btn-success rounded" %>
