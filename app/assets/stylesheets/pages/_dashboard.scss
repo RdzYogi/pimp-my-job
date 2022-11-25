@@ -1,44 +1,32 @@
-.posted-jobs {
+$font-color: #008FB4;
+.dash-column-titles{
   height: 80px;
-  padding-right: 35px;
-  padding-left: 70px;
-  color: #008FB4;
+  padding-right: 0;
+  color: $font-color;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: underline;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 38px;
+  border-bottom: 1px solid $font-color;
+}
+.no-text-present{
+  color: $font-color;
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 20px;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.list-group-item{
+  margin-bottom: 10px;
 }
 
-.my-offers {
-  height: 80px;
-  padding: 0 16px;
-  color: #008FB4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: underline;
-  font-weight: lighter;
-  font-size: 18px;
-}
-
-.received-offers {
-  height: 80px;
-  padding-right: 60px;
-  padding-left: 35px;
-  color: #008FB4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: underline;
-  font-weight: lighter;
-  font-size: 18px;
-}
 
 .flex-container1 {
   display: flex;
-  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: stretch;
@@ -49,4 +37,11 @@
   display: flex;
   gap: 20px;
   margin-right: 405px;
+}
+#dash-main-title {
+  text-align: center;
+  font-size: 50px;
+}
+#dash-container{
+  border-bottom: 1px solid $font-color;
 }

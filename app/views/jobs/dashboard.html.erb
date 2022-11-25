@@ -1,41 +1,57 @@
-<div class="d-flex mt-3 mb-3 justify-content-center">
-  <h1>My Dashboard</h1>
+<div class="container d-flex mt-3 mb-3 justify-content-center" id="dash-container">
+  <h1 class="no-text-present" id="dash-main-title">My Dashboard</h1>
 </div>
 
-    <div class="flex-container1">
-      <div class="posted-jobs">My Posted Jobs</div>
-      <div class="my-offers">My Offers</div>
-      <div class="received-offers">Received Offers</div>
-    </div>
 
 <div class="container flex-container1">
     <div class="">
-      <% current_user.jobs.each do |job| %>
+      <p class="dash-column-titles">My Posted Jobs</p>
       <ul class="list-group">
-        <li class="list-group-item">
-          <p><%= job.name %></p>
-          <p><%= link_to "Edit", edit_job_path(job) %></p>
-        </li>
-      </ul>
-      <% end %>
-    </div>
-
-    <div class="">
-      <ul class="list-group">
-        <% if current_user.offers.empty? %>
-          <li class="list-group-item">
-            <p class="card-title"><%= "No offers made" %></p>
+        <% if current_user.jobs.empty?%>
+        <div class="list-group-item">
+            <p class="card-title no-text-present"><%= "No jobs posted" %></p>
+        </div>
         <% else %>
-          <% current_user.offers.each do |offer| %>
-            <p class="card-title"><%= offer.comment %></p>
+          <% current_user.jobs.each do |job| %>
+            <div class="list-group-item">
+              <p class="no-text-present"><%= job.name %></p>
+              <div class="d-flex justify-content-around">
+                <%= link_to job_path(job), class: "text-decoration-none btn btn-see-job rounded p-0" do %>
+                  <p class="m-0 ps-2 pe-2">See job</p>
+                <% end %>
+                <%= link_to edit_job_path(job), class: "text-decoration-none btn btn-see-job rounded p-0" do %>
+                  <p class="m-0 ps-2 pe-2">Edit job</p>
+                <% end %>
+              </div>
+            </div>
           <% end %>
         <% end %>
-          </li>
       </ul>
     </div>
 
     <div class="">
+      <p class="dash-column-titles">My Offers</p>
       <ul class="list-group">
+        <% if current_user.offers.empty? %>
+          <div class="list-group-item">
+            <p class="card-title no-text-present"><%= "No offers made" %></p>
+          </div>
+        <% else %>
+          <% current_user.offers.each do |offer| %>
+            <div class="card-title d-flex flex-column justify-content-center align-items-center p-0">
+                  <p class="no-text-present "><%= offer.bid.to_i %> € for: <%= offer.job.name %></p>
+                  <%= link_to job_path(offer.job), class: "text-decoration-none btn btn-see-job rounded p-0" do %>
+                    <p class="m-0 ps-2 pe-2">See job</p>
+                  <% end %>
+                </div>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="">
+      <p class="dash-column-titles">Received Offers</p>
+      <div class="list-group">
         <% my_offers = [] %>
           <% current_user.jobs.each do |job| %>
             <% unless job.offers.nil? %>
@@ -45,14 +61,21 @@
             <% end %>
           <% end %>
           <% if my_offers.empty? %>
-            <li class="list-group-item">
-              <p class="card-title"><%= "No offers received" %></p>
+            <div class="list-group-item">
+              <p class="card-title no-text-present"><%= "No offers received" %></p>
+            </div>
           <% else %>
             <% my_offers.each do |offer| %>
-              <p class="card-title"><%= offer.comment %></p>
+            <div class="list-group-item">
+                <div class="card-title d-flex flex-column justify-content-center align-items-center p-0">
+                  <p class="no-text-present "><%= offer.bid.to_i %> € for: <%= offer.job.name %></p>
+                  <%= link_to job_path(offer.job), class: "text-decoration-none btn btn-see-job rounded p-0" do %>
+                    <p class="m-0 ps-2 pe-2">See job</p>
+                  <% end %>
+                </div>
+            </div>
             <% end %>
           <% end %>
-            </li>
-      </ul>
+      </div>
     </div>
 </div>
