@@ -1,12 +1,12 @@
-<h2>Let`s create a new job!</h2>
+<h1 class="d-flex mt-3 mb-3 justify-content-center">Your Job! ✍️</h1>
 <div class="container form-container">
   <%= simple_form_for(@job) do |f| %>
-    <%= f.input :name, label: "In a few words, what do you need done?" %>
-    <%= f.input :description, label: "What are the details?" %>
-    <%= f.input :address, label: "Where do you need it done?" %>
-    <%= f.input :price, label: "Suggest your budget (€)" %>
-    <%= f.input :deadline, label: "When do you need it done?" %>
-    <%= f.submit %>
+    <%= f.input :name, label: "In a few words, what do you need done?", label_html: { class: "light-blue-color" } %>
+    <%= f.input :description, label: "What are the details?", label_html: { class: "light-blue-color" } %>
+    <%= f.input :address, label: "Where do you need it done?", label_html: { class: "light-blue-color" } %>
+    <%= f.input :price, label: "Suggest your budget (€)", label_html: { class: "light-blue-color" } %>
+    <%= f.input :deadline, label: "When do you need it done?", label_html: { class: "light-blue-color" } %>
+    <%= f.submit 'Assign', class: "btn-edit-job" %>
   <% end %>
 </div>
 

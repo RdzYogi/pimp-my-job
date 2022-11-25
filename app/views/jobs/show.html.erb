@@ -1,19 +1,19 @@
 <div class="container show-main-controller">
   <div class="show-details-main-container">
     <div class="show-title-container row">
-      <div class="show-title col-7">
+      <div class="show-title p-0 col-7">
         <div class="main title">
           <h1><%= @job.name %></h1>
         </div>
         <div class="main-details">
-          <p><span>Posted by: </span><span class="light-blue-font"><%= @job.user.name %></span></p>
-          <p><span>Deadline:</span> <span class="light-blue-font"><%= @job.deadline.day %>/<%= @job.deadline.month %>/<%= @job.deadline.year %></span></p>
-        </div>
+          <h5><span class="light-blue-font" >Posted by: </span><span><%= @job.user.name %></span></h5>
+          <h5><span class="light-blue-font" >Deadline:</span> <span><%= @job.deadline.day %>/<%= @job.deadline.month %>/<%= @job.deadline.year %></span></h5>
+        </div><span></span>
       </div>
-      <div class="col-5" id="budget-btn-container">
-        <div class="show-budget d-flex align-items-center justify-content-center mb-3 rounded light-blue-border">
-          <h3>Budget:<%= @job.price %>€</h3>
-          <h3 style="color: #008FB4"></h3>
+      <div class="col-5 py-2" id="budget-btn-container">
+        <div class="show-budget py-2 text-center mb-3 rounded light-blue-border">
+          <h3>Budget:</h3>
+          <h2 class="black-budget"><%= @job.price %>€</h2>
         </div>
         <div class="justify-content-center align-items-center show-btns-container">
             <% if @job.user == current_user %>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="show-details-container">
-      <h4>Details:</h4>
+      <h5 class="light-blue-font">Details:</h5>
       <div class="show-details-description p-2 rounded light-blue-border">
         <p><%= @job.description %></p>
       </div>
@@ -41,53 +41,105 @@
   <div class="show-offers-container p-3 rounded" overflow-y="scroll">
     <% unless @job.user == current_user %>
       <%= render 'offers/form-offer' %>
-    <% end %>
-    <h4 id="offers-title">Offers:</h4>
-    <div class="show-offers p-3" id="offers-container-2">
-      <% if Job.find(@job.id).offers.pluck(:status).include?(true) %>
-        <% @job.offers.each do |offer| %>
-          <div class="show-offer card p-3 m-3 rounded light-blue-border">
-            <div class="show-offer-title">
-              <h5><%= offer.user.name %></h5>
-            </div>
-            <div class="show-offer-details">
-              <p><%= offer.comment %></p>
-            </div>
-            <div class="show-offer-price">
-              <p><%= offer.bid %>€</p>
-            </div>
-              <% if offer.status == true %>
-              <div class="show-offer-accepted">
-                <p>Accepted</p>
+      <h4 id="offers-title" class="pt-2">Offers:</h4>
+        <% if Job.find(@job.id).offers.pluck(:status).include?(true) %>
+          <div class="show-offers p-3" id="offers-container-2">
+            <% @job.offers.each do |offer| %>
+              <div class="show-offer card p-3 m-3 rounded light-blue-border">
+                <div class="show-offer-title">
+                  <h5><%= offer.user.name %></h5>
+                </div>
+                <div class="show-offer-details">
+                  <p><%= offer.comment %></p>
+                </div>
+                <div class="show-offer-price">
+                  <p><%= offer.bid %>€</p>
+                </div>
+                  <% if offer.status == true %>
+                  <div class="show-offer-accepted">
+                    <p>Accepted</p>
+                  </div>
+                  <% else %>
+                  <div class="show-offer-denied">
+                    <p>Not accepted</p>
+                  </div>
+                  <% end %>
               </div>
-              <% else %>
-              <div class="show-offer-denied">
-                <p>Not accepted</p>
-              </div>
-              <% end %>
+            <% end %>
           </div>
-        <% end %>
-      <% else %>
-        <% @job.offers.each do |offer| %>
-          <div class="show-offer card p-3 m-3 rounded light-blue-border">
-            <div class="show-offer-title">
-              <h5 ><%= offer.user.name %></h5>
-            </div>
-            <div class="show-offer-details">
-              <p><%= offer.comment %></p>
-            </div>
-            <div class="show-offer-price">
-              <p><%= offer.bid %>€</p>
-            </div>
-            <% if @job.user == current_user %>
-              <%= link_to "Accept", offer_path(offer), class: "btn btn-success rounded" %>
-              <% if offer.status == true %>
-                <p><%= "Offer accepted" %></p>
-              <% end %>
-              <%= link_to "Deny", offer_path(offer), class: "btn btn-warning rounded" %>
+        <% else %>
+          <div class="show-offers p-3" id="offers-container-2">
+            <% @job.offers.each do |offer| %>
+              <div class="show-offer card p-3 m-3 rounded light-blue-border">
+                <div class="show-offer-title">
+                  <h5 ><%= offer.user.name %></h5>
+                </div>
+                <div class="show-offer-details">
+                  <p><%= offer.comment %></p>
+                </div>
+                <div class="show-offer-price">
+                  <p><%= offer.bid %>€</p>
+                </div>
+                <% if @job.user == current_user %>
+                  <%= link_to "Accept", offer_path(offer), class: "btn btn-success rounded" %>
+                  <% if offer.status == true %>
+                    <p><%= "Offer accepted" %></p>
+                  <% end %>
+                  <%= link_to "Deny", offer_path(offer), class: "btn btn-warning rounded" %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         <% end %>
-      <% end %>
-  </div>
+    <% else %>
+      <h4 id="offers-title">Offers:</h4>
+        <% if Job.find(@job.id).offers.pluck(:status).include?(true) %>
+          <div class="show-offers p-3" id="offers-container">
+            <% @job.offers.each do |offer| %>
+              <div class="show-offer card p-3 m-3 rounded light-blue-border">
+                <div class="show-offer-title">
+                  <h5><%= offer.user.name %></h5>
+                </div>
+                <div class="show-offer-details">
+                  <p><%= offer.comment %></p>
+                </div>
+                <div class="show-offer-price">
+                  <p><%= offer.bid %>€</p>
+                </div>
+                  <% if offer.status == true %>
+                  <div class="show-offer-accepted">
+                    <p>Accepted</p>
+                  </div>
+                  <% else %>
+                  <div class="show-offer-denied">
+                    <p>Not accepted</p>
+                  </div>
+                  <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="show-offers p-3" id="offers-container">
+            <% @job.offers.each do |offer| %>
+              <div class="show-offer card p-3 m-3 rounded light-blue-border">
+                <div class="show-offer-title">
+                  <h5 ><%= offer.user.name %></h5>
+                </div>
+                <div class="show-offer-details">
+                  <p><%= offer.comment %></p>
+                </div>
+                <div class="show-offer-price">
+                  <p><%= offer.bid %>€</p>
+                </div>
+                <% if @job.user == current_user %>
+                  <%= link_to "Accept", offer_path(offer), class: "btn rounded btn-acc-den" %>
+                  <% if offer.status == true %>
+                    <p><%= "Offer accepted" %></p>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+    <% end %>
 </div>

@@ -36,7 +36,7 @@
   height: 100%;
 }
 .show-budget{
-  height: 60%;
+  height: fit-content;
 }
 #offers-container{
   overflow-y: auto;
@@ -44,7 +44,7 @@
 }
 #offers-container-2{
   overflow-y: auto;
-  height: 100%;
+  height: 71%;
 }
 .show-offer-accepted {
   color: lightgreen;
@@ -60,7 +60,7 @@
 }
 .show-btns-container {
 }
-h3, h4, h5 {
+h3, h4{
   color: #008FB4;
   font-style: bold;
 }
@@ -77,4 +77,12 @@ h3, h4, h5 {
 .btn-edit-job{
   background-color: #008FB4;
   color: #FFFFFF;
+}
+.btn-acc-den {
+  background-color: #008FB4;
+  color: #FFFFFF;
+  margin: 5px;
+}
+.black-budget {
+  color: #000000;
 }
