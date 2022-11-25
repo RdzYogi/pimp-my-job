@@ -43,7 +43,7 @@
       <%= render 'offers/form-offer' %>
     <% end %>
     <h4 id="offers-title">Offers:</h4>
-    <div class="show-offers p-3" id="offers-container">
+    <div class="show-offers p-3" id="offers-container-2">
       <% if Job.find(@job.id).offers.pluck(:status).include?(true) %>
         <% @job.offers.each do |offer| %>
           <div class="show-offer card p-3 m-3 rounded light-blue-border">
@@ -69,7 +69,7 @@
         <% end %>
       <% else %>
         <% @job.offers.each do |offer| %>
-          <div class="show-offer light-blue-border">
+          <div class="show-offer card p-3 m-3 rounded light-blue-border">
             <div class="show-offer-title">
               <h5 ><%= offer.user.name %></h5>
             </div>
